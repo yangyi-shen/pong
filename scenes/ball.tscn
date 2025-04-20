@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://xta2gmtd24l4"]
+
+[ext_resource type="Texture2D" uid="uid://tkf0yujw8grg" path="res://assets/ball.png" id="1_7s4qf"]
+[ext_resource type="Script" uid="uid://f5j62rqc0hl7" path="res://scripts/Ball.cs" id="1_cxlvu"]
+[ext_resource type="AudioStream" uid="uid://c5gcdlsoqwcas" path="res://assets/collide.wav" id="3_f7cbr"]
+[ext_resource type="AudioStream" uid="uid://ymye4cd7om4g" path="res://assets/score.wav" id="4_4dx81"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxlvu"]
+
+[node name="ball" type="CharacterBody2D"]
+script = ExtResource("1_cxlvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7s4qf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cxlvu")
+
+[node name="audio_collide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f7cbr")
+volume_db = 10.0
+
+[node name="audio_score" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4dx81")

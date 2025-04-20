@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dka078gyiesm6"]
+
+[ext_resource type="PackedScene" uid="uid://b4py1vam0wb8y" path="res://scenes/menu.tscn" id="1_7aeas"]
+[ext_resource type="PackedScene" uid="uid://c7tix1dmwv1nj" path="res://scenes/game.tscn" id="2_5420t"]
+[ext_resource type="Script" uid="uid://c2eqyi0y8poca" path="res://scripts/Game.cs" id="3_ik6sa"]
+
+[node name="pong" type="Node2D"]
+
+[node name="menu" parent="." instance=ExtResource("1_7aeas")]
+
+[node name="game" parent="." instance=ExtResource("2_5420t")]
+z_index = -1
+position = Vector2(0, 2)
+script = ExtResource("3_ik6sa")
+
+[connection signal="start_game" from="menu" to="game" method="_on_start_game"]
